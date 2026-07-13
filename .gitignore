@@ -1,0 +1,23 @@
+# Binarios
+netprobe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+/vendor/
+/go.sum
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Resultados
+*.json
+*.html
