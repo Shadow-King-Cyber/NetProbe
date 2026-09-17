@@ -42,6 +42,10 @@ func init() {
 }
 
 func runScan(cmd *cobra.Command, args []string) error {
+	if startPort < 1 || endPort > 65535 || startPort > endPort {
+		return fmt.Errorf("rango de puertos inválido: --start-port (%d) debe estar entre 1 y 65535 y ser <= --end-port (%d)", startPort, endPort)
+	}
+
 	fmt.Printf("[*] Escaneando %s:%d-%d con %d workers...\n", targetHost, startPort, endPort, workers)
 
 	inicio := time.Now()

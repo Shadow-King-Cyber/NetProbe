@@ -21,6 +21,10 @@ type ReporteEscaneo struct {
 
 // Exportar guarda los resultados en el formato especificado.
 func Exportar(resultados []scanner.ResultadoPuerto, archivo string, formato string, duracion time.Duration) error {
+	if len(resultados) == 0 {
+		return fmt.Errorf("no hay puertos abiertos para exportar")
+	}
+
 	reporte := ReporteEscaneo{
 		Host:         resultados[0].Host,
 		Fecha:        time.Now(),
